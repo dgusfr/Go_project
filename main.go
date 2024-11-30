@@ -15,4 +15,12 @@ func main() {
 	fmt.Println("Sua idade é de :", idade, "e sua altura:", altura)
 
 	fmt.Println("O tipo da iavél nome é:", reflect.TypeOf((nome)))
+
+	fmt.Println("1- Iniciar Monitoramento")
+	fmt.Println("2- Exibir  Logs")
+	fmt.Println("3- Sair")
+
+	var comando int
+	fmt.Scanf("%d", &comando)
+	fmt.Println("O comando escolhido foi: ", comando)
 }
