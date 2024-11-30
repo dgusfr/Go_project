@@ -3,11 +3,10 @@ package main
 import (
 	"fmt"
 	"net/http"
-	"reflect"
+	"time"
 )
 
 func main() {
-	exibeIntroducao()
 	exibeMenu()
 
 	comando := leComando()
@@ -22,16 +21,6 @@ func main() {
 	default:
 		fmt.Println("Comando incorreto")
 	}
-}
-
-func exibeIntroducao() {
-	nome := "Diego"
-	idade := 27
-	altura := 1.82
-
-	fmt.Println("Olá,", nome)
-	fmt.Println("Sua idade é:", idade, "e sua altura é:", altura)
-	fmt.Println("O tipo da variável 'nome' é:", reflect.TypeOf(nome))
 }
 
 func exibeMenu() {
@@ -60,9 +49,13 @@ func iniciarMonitoramento() {
 		"https://www.uol.com.br",
 	}
 
-	// Iteração sobre o slice usando um for tradicional
-	for i := 0; i < len(sites); i++ {
-		verificaSite(sites[i])
+	// Verificar os sites continuamente com pausa de 5 segundos
+	for {
+		for i := 0; i < len(sites); i++ {
+			verificaSite(sites[i])
+		}
+		fmt.Println("Aguardando 5 segundos para a próxima verificação...")
+		time.Sleep(5 * time.Second)
 	}
 }
 
