@@ -24,4 +24,14 @@ func main() {
 	// fmt.Scanf("%d", &comando) or without mask with:
 	fmt.Scan(&comando)
 	fmt.Println("O comando escolhido foi: ", comando)
+
+	if comando == 1{
+		fmt.Println("Monitoramento iniciado")
+	} else if  comando == 2  {
+		fmt.Println("Exibindo logs")
+	} else if comando == 3 {
+		fmt.Println("Saindo")
+	}else{
+		fmt.Println("Comando incorreto")
+	}
 }
