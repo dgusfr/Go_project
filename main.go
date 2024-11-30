@@ -25,13 +25,24 @@ func main() {
 	fmt.Scan(&comando)
 	fmt.Println("O comando escolhido foi: ", comando)
 
-	if comando == 1{
+	// if comando == 1{
+	// 	fmt.Println("Monitoramento iniciado")
+	// } else if  comando == 2  {
+	// 	fmt.Println("Exibindo logs")
+	// } else if comando == 3 {
+	// 	fmt.Println("Saindo")
+	// }else{
+	// 	fmt.Println("Comando incorreto")
+	// }
+
+	switch comando {
+	case 1:
 		fmt.Println("Monitoramento iniciado")
-	} else if  comando == 2  {
+	case 2:
 		fmt.Println("Exibindo logs")
-	} else if comando == 3 {
-		fmt.Println("Saindo")
-	}else{
+	case 3:
+		fmt.Println("Comando incorreto")
+	default:
 		fmt.Println("Comando incorreto")
 	}
 }
