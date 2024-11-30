@@ -22,6 +22,7 @@ func main() {
 		os.Exit(0)
 	default:
 		fmt.Println("Comando incorreto")
+		os.Exit(-1)
 	}
 }
 
