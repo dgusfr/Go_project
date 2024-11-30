@@ -12,10 +12,7 @@ func main() {
 	fmt.Println("2- Exibir  Logs")
 	fmt.Println("3- Sair")
 
-	var comando int
-	// fmt.Scanf("%d", &comando) or without mask with:
-	fmt.Scan(&comando)
-	fmt.Println("O comando escolhido foi: ", comando)
+	comando := leComando()
 
 	// if comando == 1{
 	// 	fmt.Println("Monitoramento iniciado")
@@ -55,6 +52,10 @@ func leComando() int{
  var comandoLido int
  fmt.Scan(&comandoLido)
  fmt.Println("O comando lido foi:", comandoLido)
+
+ 	// fmt.Scanf("%d", &comando) or without mask with:
+	// fmt.Scan(&comando)
+	// fmt.Println("O comando escolhido foi: ", comando)
 
  return comandoLido
 }
