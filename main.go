@@ -51,4 +51,10 @@ func exibeIntroducao(){
 	fmt.Println("O tipo da iavél nome é:", reflect.TypeOf((nome)))
 }
 
-func
+func leComando() int{
+ var comandoLido int
+ fmt.Scan(&comandoLido)
+ fmt.Println("O comando lido foi:", comandoLido)
+
+ return comandoLido
+}
