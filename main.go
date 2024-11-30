@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	"os"
+	"net/http"
 	"reflect"
 )
 
@@ -14,15 +14,13 @@ func main() {
 
 	switch comando {
 	case 1:
-		fmt.Println("Monitoramento iniciado")
+		iniciarMonitoramento()
 	case 2:
-		fmt.Println("Exibindo logs")
+		fmt.Println("Exibindo logs...")
 	case 3:
 		fmt.Println("Saindo do programa...")
-		os.Exit(0)
 	default:
 		fmt.Println("Comando incorreto")
-		os.Exit(-1)
 	}
 }
 
@@ -49,4 +47,22 @@ func leComando() int {
 	fmt.Scan(&comandoLido)
 	fmt.Println("O comando lido foi:", comandoLido)
 	return comandoLido
+}
+
+func iniciarMonitoramento() {
+	fmt.Println("Monitoramento iniciado...")
+	
+	url := "https://www.g1.com.br"
+	resp, err := http.Get(url)
+
+	if err != nil {
+		fmt.Println("Erro ao acessar o site:", err)
+		return
+	}
+
+	if resp.StatusCode == 200 {
+		fmt.Printf("O site %s está online! Status Code: %d\n", url, resp.StatusCode)
+	} else {
+		fmt.Printf("O site %s não está acessível. Status Code: %d\n", url, resp.StatusCode)
+	}
 }
