@@ -7,22 +7,9 @@ import (
 
 func main() {
 	exibeIntroducao()
-
-	fmt.Println("1- Iniciar Monitoramento")
-	fmt.Println("2- Exibir  Logs")
-	fmt.Println("3- Sair")
+	exibeMenu()
 
 	comando := leComando()
-
-	// if comando == 1{
-	// 	fmt.Println("Monitoramento iniciado")
-	// } else if  comando == 2  {
-	// 	fmt.Println("Exibindo logs")
-	// } else if comando == 3 {
-	// 	fmt.Println("Saindo")
-	// }else{
-	// 	fmt.Println("Comando incorreto")
-	// }
 
 	switch comando {
 	case 1:
@@ -30,32 +17,33 @@ func main() {
 	case 2:
 		fmt.Println("Exibindo logs")
 	case 3:
-		fmt.Println("Comando incorreto")
+		fmt.Println("Saindo do programa...")
 	default:
 		fmt.Println("Comando incorreto")
 	}
 }
 
-func exibeIntroducao(){
-	// var nome string = "Diego" it's equal to:
+func exibeIntroducao() {
 	nome := "Diego"
 	idade := 27
 	altura := 1.82
 
-  fmt.Println("Olá,", nome) 
-	fmt.Println("Sua idade é de :", idade, "e sua altura:", altura)
-
-	fmt.Println("O tipo da iavél nome é:", reflect.TypeOf((nome)))
+	fmt.Println("Olá,", nome)
+	fmt.Println("Sua idade é:", idade, "e sua altura é:", altura)
+	fmt.Println("O tipo da variável 'nome' é:", reflect.TypeOf(nome))
 }
 
-func leComando() int{
- var comandoLido int
- fmt.Scan(&comandoLido)
- fmt.Println("O comando lido foi:", comandoLido)
+func exibeMenu() {
+	fmt.Println("\nSelecione uma das opções abaixo:")
+	fmt.Println("1- Iniciar Monitoramento")
+	fmt.Println("2- Exibir Logs")
+	fmt.Println("3- Sair")
+}
 
- 	// fmt.Scanf("%d", &comando) or without mask with:
-	// fmt.Scan(&comando)
-	// fmt.Println("O comando escolhido foi: ", comando)
-
- return comandoLido
+func leComando() int {
+	var comandoLido int
+	fmt.Print("\nDigite o comando desejado: ")
+	fmt.Scan(&comandoLido)
+	fmt.Println("O comando lido foi:", comandoLido)
+	return comandoLido
 }
