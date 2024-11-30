@@ -6,12 +6,13 @@ import (
 )
 
 func main() {
-	var nome string = "Diego"
-	var idade int = 27
-	var altura float32 = 1.82
+	// var nome string = "Diego" it's equal to:
+	nome := "Diego"
+	idade := 27
+	altura := 1.82
 
   fmt.Println("Olá,", nome) 
 	fmt.Println("Sua idade é de :", idade, "e sua altura:", altura)
 
-	fmt.Println("O tipo da variavél nome é:", reflect.TypeOf((nome)))
+	fmt.Println("O tipo da iavél nome é:", reflect.TypeOf((nome)))
 }
