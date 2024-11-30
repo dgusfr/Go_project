@@ -51,18 +51,30 @@ func leComando() int {
 
 func iniciarMonitoramento() {
 	fmt.Println("Monitoramento iniciado...")
-	
-	url := "https://www.g1.com.br"
-	resp, err := http.Get(url)
 
-	if err != nil {
-		fmt.Println("Erro ao acessar o site:", err)
-		return
+	sites := []string{
+		"https://www.g1.com.br",
+		"https://www.google.com",
+		"https://www.github.com",
+		"https://www.uol.com.br",
 	}
 
-	if resp.StatusCode == 200 {
-		fmt.Printf("O site %s está online! Status Code: %d\n", url, resp.StatusCode)
-	} else {
-		fmt.Printf("O site %s não está acessível. Status Code: %d\n", url, resp.StatusCode)
+	for i := 0; i < len(sites); i++ {
+		verificaSite(sites[i])
+	}
+	
+	func verificaSite(site string) {
+		resp, err := http.Get(site)
+	
+		if err != nil {
+			fmt.Printf("Erro ao acessar o site %s: %s\n", site, err)
+			return
+		}
+	
+		if resp.StatusCode == 200 {
+			fmt.Printf("O site %s está online! Status Code: %d\n", site, resp.StatusCode)
+		} else {
+			fmt.Printf("O site %s não está acessível. Status Code: %d\n", site, resp.StatusCode)
+		}
 	}
 }
